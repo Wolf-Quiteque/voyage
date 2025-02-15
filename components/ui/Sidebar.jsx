@@ -49,7 +49,7 @@ export default function Sidebar() {
     { icon: Receipt, label: "Billing & Payments", link: "/billing" },
     { icon: Calendar, label: "Staff Managment", link: "/staff" },
     // { icon: BadgeDollarSign, label: "Financial Reports", link: "/finance" },
-    { icon: Users, label: "Customer Database", link: "/customers" },
+    { icon: Users, label: "Customer Database", link: "/customer" },
     // { icon: MessagesSquare, label: "Customer Feedback", link: "/feedback" },
     // { icon: Bell, label: "Notifications", link: "/notifications" },
     // { icon: FileBarChart, label: "Analytics", link: "/analytics" },
