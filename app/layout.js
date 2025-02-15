@@ -3,8 +3,8 @@ import "./globals.css";
 
 
 export const metadata = {
-  title: "Voyage",
-  description: "Voyage",
+  title: "YM | REST. MANAGMENT",
+  description: "YM | REST. MANAGMENT",
 };
 
 export default function RootLayout({ children }) {
