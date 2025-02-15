@@ -32,8 +32,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Sidebar() {
+  const [isSheetOpen, setIsSheetOpen] = useState(false); // State to control sheet open/close
+
   const [currentTime, setCurrentTime] = useState('');
 
+  const handleLinkClick = () => {
+    setIsSheetOpen(false); // Close the sheet when a link is clicked
+  };
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", link: "/dashboard" },
     { icon: UtensilsCrossed, label: "Tables & Orders", link: "/orders" },
@@ -70,7 +75,7 @@ export default function Sidebar() {
 
   return (
     <div className="p-4 flex items-center justify-between bg-white shadow-sm">
-      <Sheet>
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon">
             <Menu className="h-6 w-6" />
@@ -83,7 +88,7 @@ export default function Sidebar() {
           
           <nav className="flex flex-col gap-2 mt-8 overflow-y-auto max-h-[calc(100vh-180px)]">
             {menuItems.map((item, index) => (
-              <Link href={item.link}>
+              <Link href={item.link} onClick={handleLinkClick} key={index}>
              
               <Button
                 key={index}
@@ -98,7 +103,8 @@ export default function Sidebar() {
             
             <div className="mt-4 pt-4 border-t">
               <Button
-                onClick={logoutUser}
+                 onClick={() => { handleLinkClick(); }} // Close on logout too
+                 v
                 variant="ghost"
                 className="justify-start h-12 text-red-600 hover:bg-red-50 hover:text-red-700"
               >
