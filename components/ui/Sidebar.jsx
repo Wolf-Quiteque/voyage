@@ -29,24 +29,25 @@ import {
 import { Button } from "@/components/ui/button";
 import { logoutUser } from "@/lib/supabse/queries";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Sidebar() {
   const [currentTime, setCurrentTime] = useState('');
 
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", link: "/dashboard" },
-    { icon: UtensilsCrossed, label: "Tables & Orders", link: "/tables" },
+    { icon: UtensilsCrossed, label: "Tables & Orders", link: "/orders" },
     { icon: ClipboardList, label: "Menu Management", link: "/menu" },
     { icon: BookOpenCheck, label: "Reservations", link: "/reservations" },
     { icon: ChefHat, label: "Kitchen Display", link: "/kitchen" },
     { icon: Warehouse, label: "Inventory", link: "/inventory" },
     { icon: Receipt, label: "Billing & Payments", link: "/billing" },
-    { icon: Calendar, label: "Staff Managment", link: "/schedule" },
-    { icon: BadgeDollarSign, label: "Financial Reports", link: "/finance" },
+    { icon: Calendar, label: "Staff Managment", link: "/staff" },
+    // { icon: BadgeDollarSign, label: "Financial Reports", link: "/finance" },
     { icon: Users, label: "Customer Database", link: "/customers" },
-    { icon: MessagesSquare, label: "Customer Feedback", link: "/feedback" },
-    { icon: Bell, label: "Notifications", link: "/notifications" },
-    { icon: FileBarChart, label: "Analytics", link: "/analytics" },
+    // { icon: MessagesSquare, label: "Customer Feedback", link: "/feedback" },
+    // { icon: Bell, label: "Notifications", link: "/notifications" },
+    // { icon: FileBarChart, label: "Analytics", link: "/analytics" },
     { icon: Settings, label: "Settings", link: "/settings" },
   ];
 
@@ -82,6 +83,8 @@ export default function Sidebar() {
           
           <nav className="flex flex-col gap-2 mt-8 overflow-y-auto max-h-[calc(100vh-180px)]">
             {menuItems.map((item, index) => (
+              <Link href={item.link}>
+             
               <Button
                 key={index}
                 variant="ghost"
@@ -90,6 +93,7 @@ export default function Sidebar() {
                 <item.icon className="mr-3 h-5 w-5 text-blue-600" />
                 {item.label}
               </Button>
+              </Link>
             ))}
             
             <div className="mt-4 pt-4 border-t">
